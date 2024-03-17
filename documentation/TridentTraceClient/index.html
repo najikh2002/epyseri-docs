@@ -109,6 +109,43 @@
     
     
     
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
     
   </nav>
   
@@ -1304,10 +1341,7 @@
 <span class="normal">350</span>
 <span class="normal">351</span>
 <span class="normal">352</span>
-<span class="normal">353</span>
-<span class="normal">354</span>
-<span class="normal">355</span>
-<span class="normal">356</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">TridentTraceClient</span><span class="p">:</span>
+<span class="normal">353</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">TridentTraceClient</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> 
             <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
@@ -1318,10 +1352,10 @@
 <span class="sd">        Initializes the TridentTraceClient object.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - base_url (str): Base URL of the Trident Trace service.</span>
-<span class="sd">            - auth_token (str): Authentication token, default is None.</span>
-<span class="sd">            - app_name (str): Application name, default is None.</span>
-<span class="sd">            - user (str): User name, default is None.</span>
+<span class="sd">            base_url (str): Base URL of the Trident Trace service.</span>
+<span class="sd">            auth_token (str): Authentication token, default is None.</span>
+<span class="sd">            app_name (str): Application name, default is None.</span>
+<span class="sd">            user (str): User name, default is None.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            None</span>
@@ -1340,10 +1374,10 @@
 <span class="sd">        Automatically sets up the service domain based on the app_name.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - app_name (str): Application name.</span>
+<span class="sd">            app_name (str): Application name.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[int, str]: A tuple containing domain_id and domain_slug.</span>
+<span class="sd">            (int, str): A tuple containing domain_id and domain_slug.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">domain_id</span><span class="p">,</span> <span class="n">domain_slug</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_domain</span><span class="p">(</span><span class="n">app_name</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">domain_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1364,7 +1398,7 @@
 <span class="sd">        Retrieves health information from the specified URL using httpx.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 
 <span class="sd">        Basic Usage:</span>
 <span class="sd">            &gt;&gt;&gt; result = get_health()</span>
@@ -1376,26 +1410,26 @@
 
     <span class="k">def</span> <span class="nf">__get_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Layanan DOMAIN - Mendapatkan detail domain berdasarkan app_name.</span>
+<span class="sd">        Layanan DOMAIN Mendapatkan detail domain berdasarkan app_name.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - app_name (str): Nama aplikasi.</span>
+<span class="sd">            app_name (str): Nama aplikasi.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Data respons atau pesan kesalahan.</span>
+<span class="sd">            (dict | str): Data respons atau pesan kesalahan.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">domain_get_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_domain</span><span class="p">(</span><span class="n">app_name</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">domain_get_data</span>
 
     <span class="k">def</span> <span class="nf">__post_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        DOMAIN SERVICE - Creates a new domain with the given app_name.</span>
+<span class="sd">        DOMAIN SERVICE Creates a new domain with the given app_name.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - app_name (str): Application name.</span>
+<span class="sd">            app_name (str): Application name.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">domain_post_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">post_domain</span><span class="p">(</span><span class="n">app_name</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">domain_post_data</span>
@@ -1405,10 +1439,10 @@
 <span class="sd">        Deletes a domain with the specified domain_id.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - domain_id: Identifier of the domain to be deleted.</span>
+<span class="sd">            domain_id: Identifier of the domain to be deleted.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">domain_delete_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">delete_domain</span><span class="p">(</span><span class="n">domain_id</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">domain_delete_data</span>
@@ -1427,15 +1461,15 @@
             <span class="n">order_by</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        INFERENCE SERVICES - Get a list of inferences based on specified parameters.</span>
+<span class="sd">        INFERENCE SERVICES Get a list of inferences based on specified parameters.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - business_domain (str): Business domain.</span>
-<span class="sd">            - limit (int): Maximum number of results to return.</span>
-<span class="sd">            - offset (int): Result offset.</span>
+<span class="sd">            business_domain (str): Business domain.</span>
+<span class="sd">            limit (int): Maximum number of results to return.</span>
+<span class="sd">            offset (int): Result offset.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">inference_get_list_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_list_inference</span><span class="p">(</span>
             <span class="n">business_domain</span><span class="o">=</span><span class="n">business_domain</span><span class="p">,</span>
@@ -1454,13 +1488,13 @@
 
     <span class="k">def</span> <span class="nf">get_detail_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inference_uuid</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        INFERENCE SERVICES - Get detailed information about a specific inference.</span>
+<span class="sd">        INFERENCE SERVICES Get detailed information about a specific inference.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - inference_uuid: Identifier of the inference.</span>
+<span class="sd">            inference_uuid: Identifier of the inference.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">inference_get_detail_data_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_detail_inference</span><span class="p">(</span><span class="n">inference_uuid</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">inference_get_detail_data_result</span><span class="p">:</span>
@@ -1486,25 +1520,22 @@
             <span class="n">conf_thershold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        INFERENCE SERVICES - Create a new inference with the specified parameters.</span>
+<span class="sd">        INFERENCE SERVICES Create a new inference with the specified parameters.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - data_input: Input data for the inference.</span>
-<span class="sd">            - data_output: Output data for the inference.</span>
-<span class="sd">            - inference_time: Time of the inference.</span>
-<span class="sd">            - ...</span>
+<span class="sd">            data_input: Input data for the inference.</span>
+<span class="sd">            data_output: Output data for the inference.</span>
+<span class="sd">            inference_time: Time of the inference.</span>
+<span class="sd">            ...</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">meta_data_vision</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;image inputed&quot;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
             <span class="n">meta_data_vision</span> <span class="o">=</span> <span class="n">FeaturesImage</span><span class="o">.</span><span class="n">compute_features</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
             <span class="n">meta_data_vision</span><span class="p">[</span><span class="s1">&#39;confidence_threshold&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">conf_thershold</span>
             <span class="n">meta_data_vision</span> <span class="o">=</span> <span class="n">MetadataVisionSchema</span><span class="p">(</span><span class="o">**</span><span class="n">meta_data_vision</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>  
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Image not found! or error image!&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_input</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
             <span class="n">data_input</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data_input</span><span class="p">)</span>
@@ -1532,13 +1563,13 @@
 
     <span class="k">def</span> <span class="nf">delete_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inference_uuid</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        INFERENCE SERVICES - Delete an inference with the specified inference_uuid.</span>
+<span class="sd">        INFERENCE SERVICES Delete an inference with the specified inference_uuid.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - inference_uuid: Identifier of the inference to be deleted.</span>
+<span class="sd">            inference_uuid: Identifier of the inference to be deleted.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">inference_delete_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">delete_inference</span><span class="p">(</span><span class="n">inference_uuid</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">inference_delete_data</span>
@@ -1558,16 +1589,16 @@
             <span class="n">end_date</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            INFERENCE SERVICES - Get a list of group inferences based on specified parameters.</span>
+<span class="sd">            INFERENCE SERVICES Get a list of group inferences based on specified parameters.</span>
 
 <span class="sd">            Parameters:</span>
-<span class="sd">                - business_domain (str): Business domain.</span>
-<span class="sd">                - limit (int): Maximum number of results to return.</span>
-<span class="sd">                - offset (int): Result offset.</span>
-<span class="sd">                - ...</span>
+<span class="sd">                business_domain (str): Business domain.</span>
+<span class="sd">                limit (int): Maximum number of results to return.</span>
+<span class="sd">                offset (int): Result offset.</span>
+<span class="sd">                ...</span>
 
 <span class="sd">            Returns:</span>
-<span class="sd">                Any: Response data.</span>
+<span class="sd">                (dict | str): Response data.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="n">inference_get_group_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_group_inference</span><span class="p">(</span>
                 <span class="n">business_domain</span> <span class="o">=</span> <span class="n">business_domain</span><span class="p">,</span>
@@ -1589,13 +1620,13 @@
 
     <span class="k">def</span> <span class="nf">get_detail_group_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        INFERENCE SERVICES - Get detailed information about a specific group inference.</span>
+<span class="sd">        INFERENCE SERVICES Get detailed information about a specific group inference.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - group_id: Identifier of the group inference.</span>
+<span class="sd">            group_id: Identifier of the group inference.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">inference_get_detail_group_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_detail_group_inference</span><span class="p">(</span><span class="n">group_id</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">inference_get_detail_group_data</span>
@@ -1609,15 +1640,15 @@
             <span class="n">user</span><span class="o">=</span><span class="kc">None</span>
         <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        FEEDBACK SERVICE - Create feedback for a specific inference.</span>
+<span class="sd">        FEEDBACK SERVICE Create feedback for a specific inference.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - inference_uuid: Identifier of the associated inference.</span>
-<span class="sd">            - user_reaction: User&#39;s reaction to the inference.</span>
-<span class="sd">            - user_comment: User&#39;s comment on the inference.</span>
+<span class="sd">            inference_uuid: Identifier of the associated inference.</span>
+<span class="sd">            user_reaction: User&#39;s reaction to the inference.</span>
+<span class="sd">            user_comment: User&#39;s comment on the inference.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">feedback_create_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">post_feedback</span><span class="p">(</span>
             <span class="n">inference_uuid</span> <span class="o">=</span> <span class="n">inference_uuid</span><span class="p">,</span> 
@@ -1636,16 +1667,16 @@
             <span class="n">user</span><span class="o">=</span><span class="kc">None</span>
         <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        FEEDBACK SERVICE - Update feedback with the specified parameters.</span>
+<span class="sd">        FEEDBACK SERVICE Update feedback with the specified parameters.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - uuid: Identifier of the feedback.</span>
-<span class="sd">            - inference_uuid: Identifier of the associated inference.</span>
-<span class="sd">            - user_reaction: User&#39;s updated reaction to the inference.</span>
-<span class="sd">            - user_comment: User&#39;s updated comment on the inference.</span>
+<span class="sd">            uuid: Identifier of the feedback.</span>
+<span class="sd">            inference_uuid: Identifier of the associated inference.</span>
+<span class="sd">            user_reaction: User&#39;s updated reaction to the inference.</span>
+<span class="sd">            user_comment: User&#39;s updated comment on the inference.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">feedback_update_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">update_feedback</span><span class="p">(</span>
             <span class="n">uuid</span> <span class="o">=</span> <span class="n">uuid</span><span class="p">,</span>
@@ -1699,9 +1730,9 @@
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>app_name</code></td>
           <td>
-                <code>app_name (str</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -1728,10 +1759,11 @@
     <tbody>
         <tr>
           <td>
+                <code>(int, str)</code>
           </td>
           <td>
             <div class="doc-md-description">
-              <p>Tuple[int, str]: A tuple containing domain_id and domain_slug.</p>
+              <p>A tuple containing domain_id and domain_slug.</p>
             </div>
           </td>
         </tr>
@@ -1759,10 +1791,10 @@
 <span class="sd">    Automatically sets up the service domain based on the app_name.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - app_name (str): Application name.</span>
+<span class="sd">        app_name (str): Application name.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Tuple[int, str]: A tuple containing domain_id and domain_slug.</span>
+<span class="sd">        (int, str): A tuple containing domain_id and domain_slug.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">domain_id</span><span class="p">,</span> <span class="n">domain_slug</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_domain</span><span class="p">(</span><span class="n">app_name</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">domain_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1788,7 +1820,7 @@
 
   <div class="doc doc-contents ">
   
-      <p>Layanan DOMAIN - Mendapatkan detail domain berdasarkan app_name.</p>
+      <p>Layanan DOMAIN Mendapatkan detail domain berdasarkan app_name.</p>
 
 
 
@@ -1804,9 +1836,9 @@
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>app_name</code></td>
           <td>
-                <code>app_name (str</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -1826,13 +1858,13 @@
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
                 <code>dict | str</code>
           </td>
           <td>
@@ -1859,13 +1891,13 @@
 <span class="normal">86</span>
 <span class="normal">87</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__get_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Layanan DOMAIN - Mendapatkan detail domain berdasarkan app_name.</span>
+<span class="sd">    Layanan DOMAIN Mendapatkan detail domain berdasarkan app_name.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - app_name (str): Nama aplikasi.</span>
+<span class="sd">        app_name (str): Nama aplikasi.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Data respons atau pesan kesalahan.</span>
+<span class="sd">        (dict | str): Data respons atau pesan kesalahan.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">domain_get_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_domain</span><span class="p">(</span><span class="n">app_name</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">domain_get_data</span>
@@ -1904,9 +1936,9 @@
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>base_url</code></td>
           <td>
-                <code>base_url (str</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -1918,9 +1950,9 @@
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>auth_token</code></td>
           <td>
-                <code>auth_token (str</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -1928,13 +1960,13 @@
             </div>
           </td>
           <td>
-              <em>required</em>
+                <code>None</code>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>app_name</code></td>
           <td>
-                <code>app_name (str</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -1942,13 +1974,13 @@
             </div>
           </td>
           <td>
-              <em>required</em>
+                <code>None</code>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>user</code></td>
           <td>
-                <code>user (str</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2023,10 +2055,10 @@
 <span class="sd">    Initializes the TridentTraceClient object.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - base_url (str): Base URL of the Trident Trace service.</span>
-<span class="sd">        - auth_token (str): Authentication token, default is None.</span>
-<span class="sd">        - app_name (str): Application name, default is None.</span>
-<span class="sd">        - user (str): User name, default is None.</span>
+<span class="sd">        base_url (str): Base URL of the Trident Trace service.</span>
+<span class="sd">        auth_token (str): Authentication token, default is None.</span>
+<span class="sd">        app_name (str): Application name, default is None.</span>
+<span class="sd">        user (str): User name, default is None.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        None</span>
@@ -2058,7 +2090,7 @@
 
   <div class="doc doc-contents ">
   
-      <p>DOMAIN SERVICE - Creates a new domain with the given app_name.</p>
+      <p>DOMAIN SERVICE Creates a new domain with the given app_name.</p>
 
 
 
@@ -2074,9 +2106,9 @@
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>app_name</code></td>
           <td>
-                <code>app_name (str</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2096,13 +2128,13 @@
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
                 <code>dict | str</code>
           </td>
           <td>
@@ -2129,13 +2161,13 @@
 <span class="normal"> 99</span>
 <span class="normal">100</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__post_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    DOMAIN SERVICE - Creates a new domain with the given app_name.</span>
+<span class="sd">    DOMAIN SERVICE Creates a new domain with the given app_name.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - app_name (str): Application name.</span>
+<span class="sd">        app_name (str): Application name.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Response data.</span>
+<span class="sd">        (dict | str): Response data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">domain_post_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">post_domain</span><span class="p">(</span><span class="n">app_name</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">domain_post_data</span>
@@ -2174,9 +2206,9 @@
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>domain_id</code></td>
           <td>
-                <code>domain_id</code>
+                <code>int</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2196,13 +2228,13 @@
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
                 <code>dict | str</code>
           </td>
           <td>
@@ -2232,10 +2264,10 @@
 <span class="sd">    Deletes a domain with the specified domain_id.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - domain_id: Identifier of the domain to be deleted.</span>
+<span class="sd">        domain_id: Identifier of the domain to be deleted.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Response data.</span>
+<span class="sd">        (dict | str): Response data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">domain_delete_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">delete_domain</span><span class="p">(</span><span class="n">domain_id</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">domain_delete_data</span>
@@ -2258,7 +2290,7 @@
 
   <div class="doc doc-contents ">
   
-      <p>INFERENCE SERVICES - Delete an inference with the specified inference_uuid.</p>
+      <p>INFERENCE SERVICES Delete an inference with the specified inference_uuid.</p>
 
 
 
@@ -2274,9 +2306,9 @@
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>inference_uuid</code></td>
           <td>
-                <code>inference_uuid</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2296,13 +2328,13 @@
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
                 <code>dict | str</code>
           </td>
           <td>
@@ -2316,7 +2348,10 @@
 
           <details class="quote">
             <summary>Source code in <code>epyseri/integration/trident_trace/TridentTraceClient.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">232</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
 <span class="normal">233</span>
 <span class="normal">234</span>
 <span class="normal">235</span>
@@ -2324,18 +2359,15 @@
 <span class="normal">237</span>
 <span class="normal">238</span>
 <span class="normal">239</span>
-<span class="normal">240</span>
-<span class="normal">241</span>
-<span class="normal">242</span>
-<span class="normal">243</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inference_uuid</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">240</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inference_uuid</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    INFERENCE SERVICES - Delete an inference with the specified inference_uuid.</span>
+<span class="sd">    INFERENCE SERVICES Delete an inference with the specified inference_uuid.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - inference_uuid: Identifier of the inference to be deleted.</span>
+<span class="sd">        inference_uuid: Identifier of the inference to be deleted.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Response data.</span>
+<span class="sd">        (dict | str): Response data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">inference_delete_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">delete_inference</span><span class="p">(</span><span class="n">inference_uuid</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">inference_delete_data</span>
@@ -2358,7 +2390,7 @@
 
   <div class="doc doc-contents ">
   
-      <p>INFERENCE SERVICES - Get detailed information about a specific group inference.</p>
+      <p>INFERENCE SERVICES Get detailed information about a specific group inference.</p>
 
 
 
@@ -2374,9 +2406,9 @@
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>group_id</code></td>
           <td>
-                <code>group_id</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2396,13 +2428,14 @@
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
+                <code>dict | str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2415,7 +2448,10 @@
 
           <details class="quote">
             <summary>Source code in <code>epyseri/integration/trident_trace/TridentTraceClient.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">289</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
 <span class="normal">290</span>
 <span class="normal">291</span>
 <span class="normal">292</span>
@@ -2423,18 +2459,15 @@
 <span class="normal">294</span>
 <span class="normal">295</span>
 <span class="normal">296</span>
-<span class="normal">297</span>
-<span class="normal">298</span>
-<span class="normal">299</span>
-<span class="normal">300</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_detail_group_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="normal">297</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_detail_group_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    INFERENCE SERVICES - Get detailed information about a specific group inference.</span>
+<span class="sd">    INFERENCE SERVICES Get detailed information about a specific group inference.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - group_id: Identifier of the group inference.</span>
+<span class="sd">        group_id: Identifier of the group inference.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Response data.</span>
+<span class="sd">        (dict | str): Response data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">inference_get_detail_group_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_detail_group_inference</span><span class="p">(</span><span class="n">group_id</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">inference_get_detail_group_data</span>
@@ -2457,7 +2490,7 @@
 
   <div class="doc doc-contents ">
   
-      <p>INFERENCE SERVICES - Get detailed information about a specific inference.</p>
+      <p>INFERENCE SERVICES Get detailed information about a specific inference.</p>
 
 
 
@@ -2473,9 +2506,8 @@
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>inference_uuid</code></td>
           <td>
-                <code>inference_uuid</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2495,13 +2527,13 @@
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
                 <code>dict | str</code>
           </td>
           <td>
@@ -2533,13 +2565,13 @@
 <span class="normal">169</span>
 <span class="normal">170</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_detail_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inference_uuid</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    INFERENCE SERVICES - Get detailed information about a specific inference.</span>
+<span class="sd">    INFERENCE SERVICES Get detailed information about a specific inference.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - inference_uuid: Identifier of the inference.</span>
+<span class="sd">        inference_uuid: Identifier of the inference.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Response data.</span>
+<span class="sd">        (dict | str): Response data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">inference_get_detail_data_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_detail_inference</span><span class="p">(</span><span class="n">inference_uuid</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">inference_get_detail_data_result</span><span class="p">:</span>
@@ -2567,7 +2599,7 @@
 
   <div class="doc doc-contents ">
   
-      <p>INFERENCE SERVICES - Get a list of group inferences based on specified parameters.</p>
+      <p>INFERENCE SERVICES Get a list of group inferences based on specified parameters.</p>
 
 
 
@@ -2583,9 +2615,9 @@
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>business_domain</code></td>
           <td>
-                <code>business_domain (str</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2597,9 +2629,9 @@
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>limit</code></td>
           <td>
-                <code>limit (int</code>
+                <code>int</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2607,13 +2639,13 @@
             </div>
           </td>
           <td>
-              <em>required</em>
+                <code>None</code>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>offset</code></td>
           <td>
-                <code>offset (int</code>
+                <code>int</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2621,7 +2653,7 @@
             </div>
           </td>
           <td>
-              <em>required</em>
+                <code>None</code>
           </td>
         </tr>
     </tbody>
@@ -2633,13 +2665,14 @@
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
+                <code>dict | str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2652,7 +2685,10 @@
 
           <details class="quote">
             <summary>Source code in <code>epyseri/integration/trident_trace/TridentTraceClient.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">245</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
 <span class="normal">246</span>
 <span class="normal">247</span>
 <span class="normal">248</span>
@@ -2690,10 +2726,7 @@
 <span class="normal">280</span>
 <span class="normal">281</span>
 <span class="normal">282</span>
-<span class="normal">283</span>
-<span class="normal">284</span>
-<span class="normal">285</span>
-<span class="normal">286</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_group_inference</span><span class="p">(</span>
+<span class="normal">283</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_group_inference</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">business_domain</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">user</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2708,16 +2741,16 @@
         <span class="n">end_date</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        INFERENCE SERVICES - Get a list of group inferences based on specified parameters.</span>
+<span class="sd">        INFERENCE SERVICES Get a list of group inferences based on specified parameters.</span>
 
 <span class="sd">        Parameters:</span>
-<span class="sd">            - business_domain (str): Business domain.</span>
-<span class="sd">            - limit (int): Maximum number of results to return.</span>
-<span class="sd">            - offset (int): Result offset.</span>
-<span class="sd">            - ...</span>
+<span class="sd">            business_domain (str): Business domain.</span>
+<span class="sd">            limit (int): Maximum number of results to return.</span>
+<span class="sd">            offset (int): Result offset.</span>
+<span class="sd">            ...</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Any: Response data.</span>
+<span class="sd">            (dict | str): Response data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">inference_get_group_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_group_inference</span><span class="p">(</span>
             <span class="n">business_domain</span> <span class="o">=</span> <span class="n">business_domain</span><span class="p">,</span>
@@ -2762,13 +2795,13 @@
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
                 <code>dict | str</code>
           </td>
           <td>
@@ -2810,7 +2843,7 @@ print(result)</p>
 <span class="sd">    Retrieves health information from the specified URL using httpx.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Response data.</span>
+<span class="sd">        (dict | str): Response data.</span>
 
 <span class="sd">    Basic Usage:</span>
 <span class="sd">        &gt;&gt;&gt; result = get_health()</span>
@@ -2837,7 +2870,7 @@ print(result)</p>
 
   <div class="doc doc-contents ">
   
-      <p>INFERENCE SERVICES - Get a list of inferences based on specified parameters.</p>
+      <p>INFERENCE SERVICES Get a list of inferences based on specified parameters.</p>
 
 
 
@@ -2853,9 +2886,9 @@ print(result)</p>
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>business_domain</code></td>
           <td>
-                <code>business_domain (str</code>
+                <code>str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2867,9 +2900,9 @@ print(result)</p>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>limit</code></td>
           <td>
-                <code>limit (int</code>
+                <code>int</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2877,13 +2910,13 @@ print(result)</p>
             </div>
           </td>
           <td>
-              <em>required</em>
+                <code>None</code>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>offset</code></td>
           <td>
-                <code>offset (int</code>
+                <code>int</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2891,7 +2924,7 @@ print(result)</p>
             </div>
           </td>
           <td>
-              <em>required</em>
+                <code>None</code>
           </td>
         </tr>
     </tbody>
@@ -2903,13 +2936,14 @@ print(result)</p>
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
+                <code>dict | str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -2973,15 +3007,15 @@ print(result)</p>
         <span class="n">order_by</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    INFERENCE SERVICES - Get a list of inferences based on specified parameters.</span>
+<span class="sd">    INFERENCE SERVICES Get a list of inferences based on specified parameters.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - business_domain (str): Business domain.</span>
-<span class="sd">        - limit (int): Maximum number of results to return.</span>
-<span class="sd">        - offset (int): Result offset.</span>
+<span class="sd">        business_domain (str): Business domain.</span>
+<span class="sd">        limit (int): Maximum number of results to return.</span>
+<span class="sd">        offset (int): Result offset.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Response data.</span>
+<span class="sd">        (dict | str): Response data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">inference_get_list_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">get_list_inference</span><span class="p">(</span>
         <span class="n">business_domain</span><span class="o">=</span><span class="n">business_domain</span><span class="p">,</span>
@@ -3050,7 +3084,7 @@ print(result)</p>
 
   <div class="doc doc-contents ">
   
-      <p>FEEDBACK SERVICE - Create feedback for a specific inference.</p>
+      <p>FEEDBACK SERVICE Create feedback for a specific inference.</p>
 
 
 
@@ -3066,9 +3100,8 @@ print(result)</p>
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>inference_uuid</code></td>
           <td>
-                <code>inference_uuid</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3080,9 +3113,8 @@ print(result)</p>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>user_reaction</code></td>
           <td>
-                <code>user_reaction</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3094,9 +3126,9 @@ print(result)</p>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>user_comment</code></td>
           <td>
-                <code>user_comment</code>
+                <code>str | dict</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3116,13 +3148,14 @@ print(result)</p>
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
+                <code>dict | str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3135,7 +3168,10 @@ print(result)</p>
 
           <details class="quote">
             <summary>Source code in <code>epyseri/integration/trident_trace/TridentTraceClient.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">303</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
 <span class="normal">304</span>
 <span class="normal">305</span>
 <span class="normal">306</span>
@@ -3156,10 +3192,7 @@ print(result)</p>
 <span class="normal">321</span>
 <span class="normal">322</span>
 <span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span>
-<span class="normal">326</span>
-<span class="normal">327</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">post_feedback</span><span class="p">(</span>
+<span class="normal">324</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">post_feedback</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">inference_uuid</span><span class="p">,</span> 
         <span class="n">user_reaction</span><span class="p">,</span> 
@@ -3167,15 +3200,15 @@ print(result)</p>
         <span class="n">user</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    FEEDBACK SERVICE - Create feedback for a specific inference.</span>
+<span class="sd">    FEEDBACK SERVICE Create feedback for a specific inference.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - inference_uuid: Identifier of the associated inference.</span>
-<span class="sd">        - user_reaction: User&#39;s reaction to the inference.</span>
-<span class="sd">        - user_comment: User&#39;s comment on the inference.</span>
+<span class="sd">        inference_uuid: Identifier of the associated inference.</span>
+<span class="sd">        user_reaction: User&#39;s reaction to the inference.</span>
+<span class="sd">        user_comment: User&#39;s comment on the inference.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Response data.</span>
+<span class="sd">        (dict | str): Response data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">feedback_create_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">post_feedback</span><span class="p">(</span>
         <span class="n">inference_uuid</span> <span class="o">=</span> <span class="n">inference_uuid</span><span class="p">,</span> 
@@ -3203,7 +3236,7 @@ print(result)</p>
 
   <div class="doc doc-contents ">
   
-      <p>INFERENCE SERVICES - Create a new inference with the specified parameters.</p>
+      <p>INFERENCE SERVICES Create a new inference with the specified parameters.</p>
 
 
 
@@ -3219,9 +3252,9 @@ print(result)</p>
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>data_input</code></td>
           <td>
-                <code>data_input</code>
+                <code>str | dict</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3233,9 +3266,9 @@ print(result)</p>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>data_output</code></td>
           <td>
-                <code>data_output</code>
+                <code>str | dict</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3247,9 +3280,9 @@ print(result)</p>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>inference_time</code></td>
           <td>
-                <code>inference_time</code>
+                <code>int</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3269,13 +3302,13 @@ print(result)</p>
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
                 <code>dict | str</code>
           </td>
           <td>
@@ -3344,10 +3377,7 @@ print(result)</p>
 <span class="normal">224</span>
 <span class="normal">225</span>
 <span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">post_inference</span><span class="p">(</span>
+<span class="normal">227</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">post_inference</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data_input</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">,</span>
         <span class="n">data_output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">,</span>
@@ -3363,25 +3393,22 @@ print(result)</p>
         <span class="n">conf_thershold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    INFERENCE SERVICES - Create a new inference with the specified parameters.</span>
+<span class="sd">    INFERENCE SERVICES Create a new inference with the specified parameters.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - data_input: Input data for the inference.</span>
-<span class="sd">        - data_output: Output data for the inference.</span>
-<span class="sd">        - inference_time: Time of the inference.</span>
-<span class="sd">        - ...</span>
+<span class="sd">        data_input: Input data for the inference.</span>
+<span class="sd">        data_output: Output data for the inference.</span>
+<span class="sd">        inference_time: Time of the inference.</span>
+<span class="sd">        ...</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Response data.</span>
+<span class="sd">        (dict | str): Response data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">meta_data_vision</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;image inputed&quot;</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="n">meta_data_vision</span> <span class="o">=</span> <span class="n">FeaturesImage</span><span class="o">.</span><span class="n">compute_features</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
         <span class="n">meta_data_vision</span><span class="p">[</span><span class="s1">&#39;confidence_threshold&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">conf_thershold</span>
         <span class="n">meta_data_vision</span> <span class="o">=</span> <span class="n">MetadataVisionSchema</span><span class="p">(</span><span class="o">**</span><span class="n">meta_data_vision</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>  
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Image not found! or error image!&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_input</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="n">data_input</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data_input</span><span class="p">)</span>
@@ -3425,7 +3452,7 @@ print(result)</p>
 
   <div class="doc doc-contents ">
   
-      <p>FEEDBACK SERVICE - Update feedback with the specified parameters.</p>
+      <p>FEEDBACK SERVICE Update feedback with the specified parameters.</p>
 
 
 
@@ -3441,9 +3468,8 @@ print(result)</p>
     </thead>
     <tbody>
         <tr>
-          <td><code>-</code></td>
+          <td><code>uuid</code></td>
           <td>
-                <code>uuid</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3455,9 +3481,8 @@ print(result)</p>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>inference_uuid</code></td>
           <td>
-                <code>inference_uuid</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3469,9 +3494,9 @@ print(result)</p>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>user_reaction</code></td>
           <td>
-                <code>user_reaction</code>
+                <code>bool</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3483,9 +3508,9 @@ print(result)</p>
           </td>
         </tr>
         <tr>
-          <td><code>-</code></td>
+          <td><code>user_comment</code></td>
           <td>
-                <code>user_comment</code>
+                <code>str | dict</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3505,13 +3530,14 @@ print(result)</p>
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>Any</code></td>          <td>
+          <td>
+                <code>dict | str</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3524,7 +3550,10 @@ print(result)</p>
 
           <details class="quote">
             <summary>Source code in <code>epyseri/integration/trident_trace/TridentTraceClient.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">329</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
 <span class="normal">330</span>
 <span class="normal">331</span>
 <span class="normal">332</span>
@@ -3548,10 +3577,7 @@ print(result)</p>
 <span class="normal">350</span>
 <span class="normal">351</span>
 <span class="normal">352</span>
-<span class="normal">353</span>
-<span class="normal">354</span>
-<span class="normal">355</span>
-<span class="normal">356</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">update_feedback</span><span class="p">(</span>
+<span class="normal">353</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">update_feedback</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">uuid</span><span class="p">,</span> 
         <span class="n">inference_uuid</span><span class="p">,</span> 
@@ -3560,16 +3586,16 @@ print(result)</p>
         <span class="n">user</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    FEEDBACK SERVICE - Update feedback with the specified parameters.</span>
+<span class="sd">    FEEDBACK SERVICE Update feedback with the specified parameters.</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">        - uuid: Identifier of the feedback.</span>
-<span class="sd">        - inference_uuid: Identifier of the associated inference.</span>
-<span class="sd">        - user_reaction: User&#39;s updated reaction to the inference.</span>
-<span class="sd">        - user_comment: User&#39;s updated comment on the inference.</span>
+<span class="sd">        uuid: Identifier of the feedback.</span>
+<span class="sd">        inference_uuid: Identifier of the associated inference.</span>
+<span class="sd">        user_reaction: User&#39;s updated reaction to the inference.</span>
+<span class="sd">        user_comment: User&#39;s updated comment on the inference.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Any: Response data.</span>
+<span class="sd">        (dict | str): Response data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">feedback_update_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">update_feedback</span><span class="p">(</span>
         <span class="n">uuid</span> <span class="o">=</span> <span class="n">uuid</span><span class="p">,</span>
