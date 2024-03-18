@@ -16,15 +16,15 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
     
     
       
-        <title>Bussiness Service - epyseri</title>
+        <title>Business Service - epyseri</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bussiness Service
+              Business Service
             
           </span>
         </div>
@@ -389,7 +389,7 @@
           
   
   <span class="md-ellipsis">
-    Bussiness Service
+    Business Service
   </span>
   
 
@@ -400,7 +400,7 @@
         
   
   <span class="md-ellipsis">
-    Bussiness Service
+    Business Service
   </span>
   
 
@@ -779,9 +779,9 @@
 
 ttc = TridentTraceClient(
     base_url=&quot;string&quot;,
-    app_name=&quot;string&quot;,
     auth_token=&quot;string&quot;
 )
+
 
 print(ttc.service_domain_id, ttc.service_domain_slug)
 </code></pre>
@@ -922,142 +922,19 @@ print(get_health_result)
 <tbody>
 <tr>
 <td></td>
-<td>Any</td>
+<td>dict or str</td>
 <td>A list of inferences that match the specified parameters.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>USAGE</strong></p>
-<pre><code class="language-python">get_list_inference_res = ttc.get_list_inference(&quot;string&quot;)
+<pre><code class="language-python">get_list_inference_res = ttc.get_list_inference(
+    business_domain=&quot;vibrio-vision&quot;,
+    limit=3
+)
 
 print(get_list_inference_res)
-</code></pre>
-<blockquote>
-<p><strong>POST</strong> <code>/api/v1/inference</code> - Create Inference</p>
-</blockquote>
-<p><strong>PARAMETERS</strong></p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>data_input</td>
-<td>str or dict</td>
-<td>Input data for the inference.</td>
-<td></td>
-</tr>
-<tr>
-<td>data_output</td>
-<td>str or dict</td>
-<td>Output data for the inference.</td>
-<td></td>
-</tr>
-<tr>
-<td>inference_time</td>
-<td>int</td>
-<td>Time of the inference.</td>
-<td></td>
-</tr>
-<tr>
-<td>ai_domain</td>
-<td>str</td>
-<td>AI domain of the inference.</td>
-<td></td>
-</tr>
-<tr>
-<td>ai_subdomain</td>
-<td>str</td>
-<td>AI subdomain of the inference.</td>
-<td></td>
-</tr>
-<tr>
-<td>model_version</td>
-<td>str</td>
-<td>Version of the model used for the inference.</td>
-<td></td>
-</tr>
-<tr>
-<td>business_domain</td>
-<td>str</td>
-<td>Business domain of the inference.</td>
-<td></td>
-</tr>
-<tr>
-<td>user</td>
-<td>str</td>
-<td>User who performed the inference.</td>
-<td></td>
-</tr>
-<tr>
-<td>image</td>
-<td>np.ndarray or str or None (optional)</td>
-<td>Image data used for the inference. Defaults to None.</td>
-<td>None</td>
-</tr>
-<tr>
-<td>group_id</td>
-<td>str or None (optional)</td>
-<td>Group ID of the inference. Defaults to None.</td>
-<td>None</td>
-</tr>
-<tr>
-<td>service_domain_id</td>
-<td>int or None (optional)</td>
-<td>Service domain ID of the inference. Defaults to None.</td>
-<td>None</td>
-</tr>
-<tr>
-<td>conf_threshold</td>
-<td>float or None (optional)</td>
-<td>Confidence threshold for the inference. Defaults to None.</td>
-<td>None</td>
-</tr>
-</tbody>
-</table>
-<p><strong>RETURNS</strong></p>
-<table>
-<thead>
-<tr>
-<th>Returns</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>dict or str</td>
-<td>Response data.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>USAGE</strong></p>
-<pre><code class="language-python">import cv2
-
-image = cv2.imread(&quot;./image.jpeg&quot;)
-
-post_inference_res = ttc.post_inference(
-        data_input = &quot;string&quot;,
-        data_output = &quot;string&quot;,
-        inference_time = 0,
-        business_domain = &quot;string&quot;,
-        ai_domain = &quot;string&quot;,
-        ai_subdomain = &quot;string&quot;,
-        model_version = &quot;string&quot;,
-        group_id = &quot;string&quot;,
-        user = &quot;test&quot;,
-        image = image,
-)
-print(post_inference_res)
 </code></pre>
 <blockquote>
 <p><strong>GET</strong> <code>/api/v1/inference/{inference_uuid}</code> - Detail Inference</p>
@@ -1094,14 +971,14 @@ print(post_inference_res)
 <tbody>
 <tr>
 <td></td>
-<td>Any</td>
+<td>dict</td>
 <td>Response data.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>USAGE</strong></p>
-<pre><code class="language-python">get_detail_inference_res = ttc.get_detail_inference(&quot;74642c5b-c4ad-49f8-b1da-2d482bb424f8&quot;)
+<pre><code class="language-python">get_detail_inference_res = ttc.get_detail_inference(inference_uuid=&quot;74642c5b-c4ad-49f8-b1da-2d482bb424f8&quot;)
 
 print(get_detail_inference_res)
 </code></pre>
@@ -1163,7 +1040,7 @@ print(get_detail_inference_res)
 </tr>
 <tr>
 <td>user</td>
-<td>str</td>
+<td>str or None (optional)</td>
 <td>User who performed the inference.</td>
 <td></td>
 </tr>
@@ -1214,16 +1091,15 @@ print(get_detail_inference_res)
 </table>
 <p><strong>USAGE</strong></p>
 <pre><code class="language-python">get_group_inference_res = ttc.get_group_inference(
-    business_domain = &quot;string&quot;,
-    user=&quot;string&quot;,
-    limit = 3,
+    business_domain = &quot;vibrio-vision&quot;,
+    limit = 1,
     offset = 0,
 )
 
 print(get_group_inference_res)
 </code></pre>
 <blockquote>
-<p><strong>GET</strong> <code>/api/v1/inference/{group_uuid}</code> - Detail Group Inference</p>
+<p><strong>GET</strong> <code>/api/v1/inference/{group_id}</code> - Detail Group Inference</p>
 </blockquote>
 <p><strong>PARAMETERS</strong></p>
 <table>
@@ -1257,14 +1133,14 @@ print(get_group_inference_res)
 <tbody>
 <tr>
 <td></td>
-<td>Any</td>
+<td>dict</td>
 <td>Response data.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>USAGE</strong></p>
-<pre><code class="language-python">get_group_detail_inference_res = ttc.get_detail_group_inference(&quot;string&quot;)
+<pre><code class="language-python">get_group_detail_inference_res = ttc.get_detail_group_inference(group_id=&quot;3LtgvRHgi0M&quot;)
 
 print(get_group_detail_inference_res)
 </code></pre>
@@ -1303,20 +1179,20 @@ print(get_group_detail_inference_res)
 <tbody>
 <tr>
 <td></td>
-<td>Any</td>
+<td>bool</td>
 <td>Response data.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>USAGE</strong></p>
-<pre><code class="language-python">delete_inference_res = ttc.delete_inference(&quot;5c462e22-dad0-46eb-9af8-fb7f34a6cf06&quot;)
+<pre><code class="language-python">delete_inference_res = ttc.delete_inference(inference_uuid=&quot;5c462e22-dad0-46eb-9af8-fb7f34a6cf06&quot;)
 
 print(delete_inference_res)
 </code></pre>
 <h2 id="feedback">Feedback</h2>
 <blockquote>
-<p><strong>POST</strong> <code>/api/v1/inference/{inference_uuid}</code> - Create Feedback</p>
+<p><strong>POST</strong> <code>/api/v1/feedback</code> - Create Feedback</p>
 </blockquote>
 <p><strong>PARAMETERS</strong></p>
 <table>
@@ -1368,7 +1244,7 @@ print(delete_inference_res)
 <tbody>
 <tr>
 <td></td>
-<td>Any</td>
+<td>dict</td>
 <td>Response data.</td>
 <td></td>
 </tr>
@@ -1377,18 +1253,14 @@ print(delete_inference_res)
 <p><strong>USAGE</strong></p>
 <pre><code class="language-python">create_feedback_res = ttc.post_feedback(
     inference_uuid=&quot;74642c5b-c4ad-49f8-b1da-2d482bb424f8&quot;,
-    user_comment={
-        &quot;id&quot;: 22,
-        &quot;user&quot;: &quot;nama&quot;,
-        &quot;message&quot;: &quot;Test &quot;
-    },
-    user_reaction=True
+    user_comment=&quot;Coba pake string&quot;
+    user_reaction=False
 )
 
 print(create_feedback_res)
 </code></pre>
 <blockquote>
-<p><strong>PUT</strong> <code>/api/v1/inference/{inference_uuid}</code> - Update Feedback</p>
+<p><strong>PUT</strong> <code>/api/v1/feedback</code> - Update Feedback</p>
 </blockquote>
 <p><strong>PARAMETERS</strong></p>
 <table>
@@ -1446,16 +1318,25 @@ print(create_feedback_res)
 <tbody>
 <tr>
 <td></td>
-<td>Any</td>
+<td>dict</td>
 <td>Response data from the <code>update_feedback</code> method of the CoreAPI object.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>USAGE</strong></p>
-<pre><code class="language-python">delete_inference_res = ttc.delete_inference(&quot;5c462e22-dad0-46eb-9af8-fb7f34a6cf06&quot;)
+<pre><code class="language-python">update_feedback_res = ttc.update_feedback(
+    uuid=&quot;f815a67e-f349-4dea-a64a-9f3d804f48cd&quot;,
+    inference_uuid=&quot;74642c5b-c4ad-49f8-b1da-2d482bb424f8&quot;,
+    user_comment={
+        &quot;id&quot;: 22,
+        &quot;user&quot;: &quot;nama&quot;,
+        &quot;message&quot;: &quot;Coba edit feedback&quot;
+    },
+    user_reaction=True
+)
 
-print(delete_inference_res)
+print(update_feedback_res)
 </code></pre>
 
 
@@ -1506,7 +1387,7 @@ print(delete_inference_res)
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
     
   </body>
